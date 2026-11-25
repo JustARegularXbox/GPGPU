@@ -26,6 +26,57 @@
       </nav>
     </header>
 
+    <main>
+      <hgroup>
+        <h1>MNIST</h1>
+        <p><b>Drawn digits to numerical representations</b></p>
+      </hgroup>
+
+      <section>
+        <h2>What is MNIST?</h2>
+        <p> MNIST (Modified National Institute of Standards and Technology) are 70,000 standardized handwritten digits of resolution 28×28 in grayscale where 60k of those are used to train the model with the remainder 10k being used for testing. It was first theorized in the paper LeCun et al. from 1998</p>
+      </section>
+
+      <section>
+        <h2>The network</h2>
+        <div class="network" aria-hidden="true">
+        <div class="layer"><span class="n"></span><span class="n"></span><span class="n"></span><span class="more">⋮</span><span class="n"></span><p>784</p></div>
+        <div class="layer"><span class="n"></span><span class="n"></span><span class="n"></span><span class="more">⋮</span><span class="n"></span><p>128</p></div>
+        <div class="layer"><span class="n"></span><span class="n"></span><span class="n"></span><span class="more">⋮</span><span class="n"></span><p>128</p></div>
+        <div class="layer"><span class="n"></span><span class="n"></span><span class="n"></span><span class="more">⋮</span><span class="n"></span><p>10</p></div>
+        </div>
+        <aside>
+          <p>This is just a visual approximation of a neural network. An actual neural network is N<sup>N</sup> (where N is the number of parameters per layer) and as such it's impossible to represent them.</p>
+        </aside>
+        <table>
+          <thead><tr><th>Layer</th><th>Weights</th><th>Biases</th><th>Parameters</th></tr></thead>
+          <tbody>
+          <tr><td>784 → 128</td><td>100,352</td><td>128</td><td>100,480</td></tr>
+          <tr><td>128 → 128</td><td>16,384</td><td>128</td><td>16,512</td></tr>
+          <tr><td>128 → 10</td><td>1,280</td><td>10</td><td>1,290</td></tr>
+          </tbody>
+          <tfoot><tr><td>Total</td><td></td><td></td><td>118,282</td></tr></tfoot>
+        </table>
+      </section>
+
+      <section>
+        <h2>What one inference is</h2>
+        <p>Inference is a totality of forward passes that computes the output layer. The way it works is that there's something that transforms the input into numbers, more specifically into a matrix representation. Then for every layer N+1 following the input layer, (being denoted with N) we perform a matrix multiply. The manner in which we perform it is that we take the bias of each N+1's and add it to the result of the matrix multiply indexed i (where 0 &lt; i &lt; N) operation. We then take the ReLU (Rectified Linear Unit) of the aforementioned matmul + bias in order to create a normal distribution of values. Then, last but not least, we take the softmax of all of that (again, on a per layer basis) at every step in order to neutralize any and all values that are below a certain threshold. After you've repeated this step i (with 0 &lt; i &lt; N) times you've finished with the first forward pass.</p>
+        <dl>
+          <dt>Weight</dt><dd>The relation which connects two activation states between one another.</dd>
+          <dt>Bias</dt><dd>The affinity with which a certain activation gets triggered by a certain weight based on the input layer.</dd>
+          <dt>Activation</dt><dd>The value of one element in one of the representation matrices.</dd>
+          <dt>ReLU</dt><dd>Computes a distribution of the last layer activation and makes it normal.</dd>
+          <dt>Softmax</dt><dd>Cuts everything that is below a certain threshold by means of setting them to 0.</dd>
+        </dl>
+      </section>
+
+      <section>
+        <h2>Training vs inference</h2>
+        <p>Now take what I've just described for the entirety of fthe inference step. And do it backwards in a way that makes sense. Say you start at the output layer. And you have already fed the input layer. You get a result that's most likely than not what you wanted. So you change the output layer's values to match what you wanted to get with that input. Then you commence backwards propagation. But first you compute the loss function. What it does is it takes the output layer you want and subtracts the result that you actually got. After which you compute the gradient of the change that the layer N-1 (where N is the output layer) has to change by multivariable integrating the entire value, which you then once again softmax in order to try and neuter all of the unnecessary values that don't contribute to the learning process.</p>
+        <a class="try" href="example.html">Try it yourself</a>
+      </section>
+    </main>
 
     <footer>
       <p id="copyright">Copyright 2026 - Neodim. All rights reserved</p>

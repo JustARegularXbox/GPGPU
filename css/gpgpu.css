@@ -88,6 +88,24 @@ figcaption {
   text-align: center;
 }
 
-.mnist:last-child {
-  text-align: center;
+
+.jump, .jump:visited {
+  display: inline-block;
+  margin: 1em 0 2em;
+  padding: 0.6em 1.4em;
+  color: var(--darkbg);
+  background-color: var(--accent);
+  border-radius: 999px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.15s ease-out, background-color 0.4s;
+}
+
+.jump::after {
+  content: " \2192";
+}
+
+.jump:hover, .jump:focus {
+  transform: translateY(-2px);
+  background-color: var(--maintxt);
 }
