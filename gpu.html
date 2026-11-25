@@ -37,8 +37,10 @@
         <section>
           <h3>The Early Days</h3>
           <p>Prior to us having GPUs, the main way we used to get graphics on the screen was by means of using analog signals (not even CPUs!!) for such tasks. Well, not exactly as you'd expect it. The first actual "game" as we got to know it that actually had to render something was done actually on an oscilloscope. By "programming" the oscilloscope, you were able to get something that resembled graphics. Take Tennis For Two played on a Cathode Ray Oscillograph.</p>
-          <img src="images/tennis_for_two.jpg" alt="Tennis for Two on a Cathode Ray Oscillograph">
-          <figcaption>Tennis for Two (1958), running on an analog computer</figcaption>
+          <figure>
+            <img src="images/tennis_for_two.jpg" alt="Tennis for Two on a Cathode Ray Oscillograph">
+            <figcaption>Tennis for Two (1958), running on an analog computer</figcaption>
+          </figure>
           <aside>
             <p>It used a Donner Model 30 analog computer, originally intended for scientific and engineering calculations. Four operational amplifiers calculated the ball's motion. Resistors and capacitors were arranged into integrating circuits, effectively solving differential equations in real time.</p>
           </aside>
@@ -49,8 +51,10 @@
           <p>By the 1970s computers had started becoming quite a commodity. You'd be able to get a TRS-80 or an Apple II and do computing at your home (very expensively that is). At this point in time, we didn't really need complex graphics, because to us computers were basically just more complex calculators. However, they needed a manner to actually get those pixels lit up.
           <h4>Display Controller</h4>
           <p>While the concept of a display controller applies to this day, back in those times it was the only method of actually getting graphics on the screen. Using the processor to - on a per canvas basis - draw a set of pixels. All done in software; and all done very slowly.</p>
-          <img src="images/appleii.png" alt="The Apple II interface showing AppleWorks.GS">
-          <figcaption>The interface for AppleWorks running on the Apple II</figcaption>
+          <figure>
+            <img src="images/appleii.png" alt="The Apple II interface showing AppleWorks.GS">
+            <figcaption>The interface for AppleWorks running on the Apple II</figcaption>
+          </figure>
           <p>The display controller was necessary however because, to this day, we still need to transform any and all software representations into an analog signal. But the problem currently is that the display controller is the only fast part of the chain of displaying graphics.</p>
         </section>
         <section>
@@ -72,6 +76,7 @@
           <p><b>Compute Unified Device Architecture</b> is the most important thing to happen to GPUs with respect to the topic at hand. In 2006 Nvidia releases CUDA, and with it, the capability of making a GPU perform operations on many data with a single thread, or SIMT for short. It allows to, say, take a matrix, and perform compute on the entire matrix with just one instruction.</p>
           <aside>
             <p>At first, CUDA was used with the sole purpose of providing highly parallelized mathematical computations, which would add seroius capability when it came to physics simulation and scientific computing.</p>
+          </aside>
         </section>
       </section>
     </main>
