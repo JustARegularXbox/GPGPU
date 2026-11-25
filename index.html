@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.5">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <title>General Purpose Graphics Processing Unit</title>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html"><b>Home</b></a></li>
+          <li><button><b>Theory</b></button>
+            <ul class="hoverbutton">
+              <li><a href="gpu.html"><b>GPU</b></a></li>
+              <li><a href="gpgpu.html"><b>GPGPU</b></a></li>
+              <li><a href="mnist.html"><b>MNIST</b></a></li>
+            </ul>
+          </li>
+          <li><a href="example.html"><b>Example</b></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <hgroup>
+        <h1>General Purpose Graphics Processing Unit</h1>
+        <p><b>An introduction into making a GPU do more than just display pretty pixels</b></p>
+      </hgroup>
+      <section> 
+        <h2>Overview</h2>
+        <section>
+          <h3>The CPU</h3>
+          <p>A central processing unit, or CPU, is the brain of the computer. Its job is to do as much as it can, sequentially, whilst also orchestrating what other components of the computer do.</p>
+          <p>The problem however stems from the fact that it's good at doing everything. It might seem counterintuitive that something with such generality would struggle to compute something, but that generality is what holds it back. Every one of the few cores it has is designed in such a way that it can do a lot of things. And because of that they end up being incredibly large, thus, not many can fit on a die. Not to mention the heat and power requirements that come with cores that can handle all sorts of tasks.</p>
+        </section>
+        <section>
+          <h3>The GPU</h3>
+          <p>By comparison, a GPU has thousands of simple cores. Their job is strictly to do math, as fast as possible and as parallel as possible. They lack the advanced control logic that CPU cores have, but what they get in return is being able to execute the same instruction across batches of data simultaneously.</p>
+          <p>GPUs were initially made because rendering millions of pixels, especially at high throughput and with per pixel effects, was incredibly costly for CPUs. Plus, pixels are quite simple: the color of a pixel can be calculated almost completely independently from the pixel next to it. Meaning we needed something that could do raw compute fast independent of what other cores are doing.</p>
+        </section>
+        <section>
+          <h3>Introducing: GPGPU</h3>
+          <p>But what if we take that parallel compute together with being able to execute the same thing over and over again across different batches of data? We get general purpose computations on graphics processing units.</p>
+          <p>The name would suggest that it can replace a CPU, but that couldn't be further from the truth. Because when we're talking general purpose, what we instead mean is that it can do more than just process pixels. Say... process arbitrary information as numeric representations.</p>
+        </section>
+      </section>
+
+      <section class="cards">
+        <h2>Main Concepts</h2>
+        <article>
+          <img src="images/gpu.jpg" alt="Tegra X1 package shot">
+          <h3>GPU</h3>
+          <p>What is a GPU</p>
+          <a href="gpu.html" aria-label="Read more about GPUs">Read more</a>
+        </article>
+        <article>
+          <img src="images/cuda.jpg" alt="NVIDIA CUDA logo">
+          <h3>GPGPU</h3>
+          <p>What does General Purpose mean</p>
+          <a href="gpgpu.html" aria-label="Read more about GPGPU">Read more</a>
+        </article>
+        <article>
+          <img src="images/mnist.png" alt="Handwritten MNIST digits">
+          <h3>MNIST</h3>
+          <p>Making a GPU learn what numbers are</p>
+          <a href="mnist.html" aria-label="Read more about MNIST">Read more</a>
+        </article>
+        <article>
+          <img src="images/tensor.jpg" alt="Tensor data structure">
+          <h3>Example</h3>
+          <p>Seeing it in action</p>
+          <a href="example.html" aria-label="Read more: MNIST example">Read more</a>
+        </article>
+      </section>
+
+
+    </main>
+
+    <footer>
+      <p id="copyright">Copyright 2026 - Neodim. All rights reserved.</p>
+      <p>colors: catppuccin mocha</p>
+    </footer>
+
+  </body>
+</html>

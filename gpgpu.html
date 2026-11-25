@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/gpgpu.css">
+    <title>General Purpose Operations</title>
+  </head>
+
+  <body>
+
+    <header>
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html"><b>Home</b></a></li>
+          <li><button><b>Theory</b></button>
+            <ul class="hoverbutton">
+              <li><a href="gpu.html"><b>GPU</b></a></li>
+              <li><a href="gpgpu.html"><b>GPGPU</b></a></li>
+              <li><a href="mnist.html"><b>MNIST</b></a></li>
+            </ul>
+          </li>
+          <li><a href="example.html"><b>Example</b></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <hgroup>
+        <h1>General Purpose GPU</h1>
+        <p><b>How GPUs turned into what we know of them today</b></p>
+      </hgroup>
+      
+      <section class="versus">
+        <h2>Few big cores, or thousands of small ones</h2>
+        <article class="chip cpu">
+          <h3>CPU</h3>
+          <div class="die" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <p>Sure, CPUs these days can go up to 96 cores. It's still not even comparable.</p>
+        </article>
+        <article class="chip gpu">
+          <h3>GPU</h3>
+          <div class="die" aria-hidden="true"></div>
+          <p>Not really to scale. A GPU, especially these days, would have many more cores. This is just a representation.</p>
+        </article>
+      </section>
+
+      <section>
+        <h2>Same instruction, different data</h2>
+        <p>How can you take a single instruction and put multiple data through it? That does't make sense. And it's true. But what the GPU takes advantage of is its parallelism. You're able to take a single instruction, feed multiple pieces of data to the hundreds to thousands of cores, and ask them to perform the same operation on all of them. Think of a 128x128 matrix and all of a sudden it starts making sense why SIMD was so important in the world of games.</p>
+      </section>
+
+      <section class="cards">
+        <h2>Talking to the GPU</h2>
+        <article>
+          <h3>CUDA</h3>
+          <p>Proprietary Application Programming Interface (API) from Nvidia that has a software side, which allows you to take control of both the CPU and GPU as needed, as well as a library of other APIs (prefixed with cu from CUDA, take for example cuDNN or cuBLAS) in order to perform parallel operations.</p>
+        </article>
+        <article>
+          <h3>OpenCL</h3>
+          <p>Free and open source API first developed by Apple in order to get parallel computing out of a proprietary format and into a specification, that GPU vendors would be then able to implement into their drivers. Just like CUDA preceeding it, it allows for programming of both the CPU and the GPU (as well as DSPs and FPGAs).</p>
+        </article>
+        <article>
+          <h3>Vulkan Compute</h3>
+          <p>In 2016, the people behind OpenGL and OpenCL released Vulkan. A fully open source, homogenous API that allowed for both graphics as well as general compute. Its biggest advantage is that as long as a driver implements the Vulkan specification, it's allowed to do anything that the spec allows. Including composble kernels.</p>
+        </article>
+        <article>
+          <h3>WebGPU</h3>
+          <p>The modern departure from state machines on browsers. It implements a command queue, and with that it allows the use of general purpose GPU software by means of a browser. Just like Vulkan before it, it compiles to Standard Portable Intermediate Representation, allowing the use of a single program on multiple devices.</p>
+        </article>
+      </section>
+
+      <aside>
+        <p>AlexNet, the 2012 network that started the deep learning boom, was trained on two GTX 580s: consumer gaming cards.</p>
+        <figure>
+          <img src="images/alex.jpg" alt="AlexNet">
+          <figcaption>AlexNet, the first ever neural network that made deep learning get taken seriously</figcaption>
+        </figure>
+      </aside>
+
+      <section class="mnist">
+        <h2>So what can we do with it?</h2>
+        <p>Well for starters AlexNet. But that's too new. Where we're going we care more about encoding and retreiving arbitrary data from the GPU.</p>
+        <a href="mnist.html">Jump in</a>
+    </main>
+
+    <footer>
+      <p id="copyright">Copyright 2026 - Neodim. All rights reserved</p>
+      <p>colors: catppuccin mocha</p>
+    </footer>
+  </body>
+</html>
